@@ -92,7 +92,7 @@ public class DeuxMontagnesMRCDMBusAgencyTools extends DefaultAgencyTools {
 	@Override
 	public void setTripHeadsign(MRoute route, MTrip mTrip, GTrip gTrip) {
 		String stationName = cleanTripHeadsign(gTrip.trip_headsign);
-		int directionId = Integer.valueOf(gTrip.direction_id);
+		int directionId = gTrip.direction_id;
 		mTrip.setHeadsignString(stationName, directionId);
 	}
 
@@ -155,6 +155,10 @@ public class DeuxMontagnesMRCDMBusAgencyTools extends DefaultAgencyTools {
 			stopId = 200000;
 		} else if (gStop.stop_id.startsWith("SPL")) {
 			stopId = 300000;
+		} else if (gStop.stop_id.startsWith("SJL")) {
+			stopId = 400000;
+		} else if (gStop.stop_id.startsWith("SEU")) {
+			stopId = 600000;
 		} else {
 			System.out.println("Stop doesn't have an ID (start with)! " + gStop);
 			System.exit(-1);
@@ -174,5 +178,4 @@ public class DeuxMontagnesMRCDMBusAgencyTools extends DefaultAgencyTools {
 		}
 		return stopId + digits;
 	}
-
 }
