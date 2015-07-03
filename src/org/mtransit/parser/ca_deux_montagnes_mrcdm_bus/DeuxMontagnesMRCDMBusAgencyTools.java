@@ -127,15 +127,28 @@ public class DeuxMontagnesMRCDMBusAgencyTools extends DefaultAgencyTools {
 		return super.cleanStopNameFR(gStopName);
 	}
 
+	private static final String ZERO = "0";
+
 	@Override
 	public String getStopCode(GStop gStop) {
-		if ("0".equals(gStop.stop_code)) {
+		if (ZERO.equals(gStop.stop_code)) {
 			return null;
 		}
 		return super.getStopCode(gStop);
 	}
 
 	private static final Pattern DIGITS = Pattern.compile("[\\d]+");
+
+	private static final String A = "A";
+	private static final String B = "B";
+	private static final String C = "C";
+	private static final String D = "D";
+
+	private static final String DMO = "DMO";
+	private static final String OK = "OK";
+	private static final String SPL = "SPL";
+	private static final String SJL = "SJL";
+	private static final String SEU = "SEU";
 
 	@Override
 	public int getStopId(GStop gStop) {
@@ -148,28 +161,28 @@ public class DeuxMontagnesMRCDMBusAgencyTools extends DefaultAgencyTools {
 		matcher.find();
 		int digits = Integer.parseInt(matcher.group());
 		int stopId;
-		if (gStop.stop_id.startsWith("DMO")) {
+		if (gStop.stop_id.startsWith(DMO)) {
 			stopId = 100000;
-		} else if (gStop.stop_id.startsWith("OK")) {
+		} else if (gStop.stop_id.startsWith(OK)) {
 			stopId = 200000;
-		} else if (gStop.stop_id.startsWith("SPL")) {
+		} else if (gStop.stop_id.startsWith(SPL)) {
 			stopId = 300000;
-		} else if (gStop.stop_id.startsWith("SJL")) {
+		} else if (gStop.stop_id.startsWith(SJL)) {
 			stopId = 400000;
-		} else if (gStop.stop_id.startsWith("SEU")) {
+		} else if (gStop.stop_id.startsWith(SEU)) {
 			stopId = 600000;
 		} else {
 			System.out.println("Stop doesn't have an ID (start with)! " + gStop);
 			System.exit(-1);
 			stopId = -1;
 		}
-		if (gStop.stop_id.endsWith("A")) {
+		if (gStop.stop_id.endsWith(A)) {
 			stopId += 1000;
-		} else if (gStop.stop_id.endsWith("B")) {
+		} else if (gStop.stop_id.endsWith(B)) {
 			stopId += 2000;
-		} else if (gStop.stop_id.endsWith("C")) {
+		} else if (gStop.stop_id.endsWith(C)) {
 			stopId += 3000;
-		} else if (gStop.stop_id.endsWith("D")) {
+		} else if (gStop.stop_id.endsWith(D)) {
 			stopId += 4000;
 		} else {
 			System.out.println("Stop doesn't have an ID (end with)! " + gStop);
