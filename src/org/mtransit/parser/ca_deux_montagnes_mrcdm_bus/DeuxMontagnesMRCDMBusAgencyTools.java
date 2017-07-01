@@ -17,8 +17,8 @@ import org.mtransit.parser.mt.data.MRoute;
 import org.mtransit.parser.CleanUtils;
 import org.mtransit.parser.mt.data.MTrip;
 
-// https://www.amt.qc.ca/en/about/open-data
-// http://www.amt.qc.ca/xdata/mrc2m/google_transit.zip
+// https://rtm.quebec/en/about/open-data
+// https://rtm.quebec/xdata/mrc2m/google_transit.zip
 public class DeuxMontagnesMRCDMBusAgencyTools extends DefaultAgencyTools {
 
 	public static void main(String[] args) {
