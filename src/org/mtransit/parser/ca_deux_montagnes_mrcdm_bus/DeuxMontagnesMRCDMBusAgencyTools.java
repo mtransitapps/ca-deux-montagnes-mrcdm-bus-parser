@@ -27,7 +27,6 @@ public class DeuxMontagnesMRCDMBusAgencyTools extends DefaultAgencyTools {
 			args[0] = "input/gtfs.zip";
 			args[1] = "../../mtransitapps/ca-deux-montagnes-mrcdm-bus-android/res/raw/";
 			args[2] = ""; // files-prefix
-			// args[3] = "false"; // not-V1
 		}
 		new DeuxMontagnesMRCDMBusAgencyTools().start(args);
 	}
@@ -83,7 +82,7 @@ public class DeuxMontagnesMRCDMBusAgencyTools extends DefaultAgencyTools {
 		return CleanUtils.cleanLabel(routeLongName);
 	}
 
-	private static final String AGENCY_COLOR = "00457C"; // blue
+	private static final String AGENCY_COLOR = "1F1F1F"; // DARK GRAY (from GTFS)
 
 	@Override
 	public String getAgencyColor() {
